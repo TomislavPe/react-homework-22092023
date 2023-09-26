@@ -21,7 +21,7 @@ function NewUser() {
         event.preventDefault();
         if (name && years) {
             const newUser = {
-                id: `${name}_${new Date().getTime()}`,
+                id: users.length + 1,
                 name,
                 years,
             };

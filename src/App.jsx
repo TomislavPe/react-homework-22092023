@@ -29,9 +29,14 @@ export default function App() {
             <div>
                 <h1>React aplikacija</h1>
 
-                {users.map((user, index) => (
-                    <User key={user.id} index={index} />
-                ))}
+                {users.map((user, index) => {
+                    return (
+                        <>
+                            <User key={user.id} index={index} />
+                            <hr />
+                        </>
+                    );
+                })}
 
                 <NewUser />
 
