@@ -1,7 +1,8 @@
 import { UserContext } from "../App";
 import { useContext, useState } from "react";
+import WithColor from "../WithColor";
 
-export default function NewUser({ onUserSubmit }) {
+function NewUser() {
     const [users, setUsers] = useContext(UserContext);
 
     const [name, setName] = useState("");
@@ -49,7 +50,9 @@ export default function NewUser({ onUserSubmit }) {
                     value={years}
                 />
             </label>
-            <button type="submit">Prihvati</button>
+            <button type="submit">Dodaj korisnika</button>
         </form>
     );
 }
+
+export default NewUser;

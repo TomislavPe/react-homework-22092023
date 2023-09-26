@@ -1,6 +1,8 @@
 import "./App.css";
 import { useState, createContext } from "react";
 import { User, NewUser } from "./user";
+import WithColor from "./WithColor";
+import Button from "./Button";
 
 export const UserContext = createContext();
 
@@ -10,7 +12,6 @@ export default function App() {
         { id: 2, name: "Marko", years: 35 },
         { id: 3, name: "Ana", years: 25 },
     ];
-
     const [users, setUsers] = useState(initialUsers);
 
     const UserContextProvider = ({ children }) => {
@@ -20,6 +21,8 @@ export default function App() {
             </UserContext.Provider>
         );
     };
+
+    const ColoredButton = WithColor(Button);
 
     return (
         <UserContextProvider>
@@ -31,6 +34,11 @@ export default function App() {
                 ))}
 
                 <NewUser />
+
+                <ColoredButton color="red" />
+                <ColoredButton color="green" />
+                <ColoredButton color="blue" />
+                <ColoredButton color="yellow" />
             </div>
         </UserContextProvider>
     );
