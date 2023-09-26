@@ -1,5 +1,5 @@
 import { UserContext } from "../App";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import UserPosts from "./UserPosts";
 
 export default function User({ index }) {
@@ -8,15 +8,26 @@ export default function User({ index }) {
     const years = users[index].years;
     const userId = users[index].id;
 
-    const handleNameChange = (event, index) => {
+    const [newName, setNewName] = useState(name)
+
+    const handleNameChange = () => {
         const newUsers = [...users];
 
-        newUsers[index].name = event.target.value;
+        newUsers[index].name = newName;
         setUsers(newUsers);
     };
 
+    const handleNewNameChange = (event) => {
+      setNewName(event.target.value);
+  };
+
+  const userStyle = {
+    border: '4px solid white',
+    padding: '20px',
+  };
+
     return (
-        <div>
+        <div style={userStyle}>
             <p>
                 Pozdrav, moje ime je {name} i imam {years} godina.
             </p>
@@ -25,10 +36,11 @@ export default function User({ index }) {
                 Upiši novo ime:
                 <input
                     type="text"
-                    onChange={(event) => handleNameChange(event, index)}
-                    value={name}
+                    onChange={handleNewNameChange}
+                    value={newName}
                 />
             </label>
+            <button onClick={handleNameChange}>Promijeni ime</button>
         </div>
     );
 }

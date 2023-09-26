@@ -33,22 +33,26 @@ function NewUser() {
 
     return (
         <form onSubmit={handleUserSubmit}>
+            Novi korisnik:
             <label>
-                Novi korisnik:
-                <input
-                    type="text"
-                    name="Ime"
-                    placeholder="Ime"
-                    onChange={onNameChange}
-                    value={name}
-                />
-                <input
-                    type="number"
-                    name="Godine"
-                    placeholder="Godine"
-                    onChange={onYearsChange}
-                    value={years}
-                />
+                <div>
+                    <input
+                        type="text"
+                        name="Ime"
+                        placeholder="Ime"
+                        onChange={onNameChange}
+                        value={name}
+                    />
+                </div>
+                <div>
+                    <input
+                        type="number"
+                        name="Godine"
+                        placeholder="Godine"
+                        onChange={onYearsChange}
+                        value={years}
+                    />
+                </div>
             </label>
             <button type="submit">Dodaj korisnika</button>
         </form>

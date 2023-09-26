@@ -30,12 +30,7 @@ export default function App() {
                 <h1>React aplikacija</h1>
 
                 {users.map((user, index) => {
-                    return (
-                        <>
-                            <User key={user.id} index={index} />
-                            <hr />
-                        </>
-                    );
+                    return <User key={user.id} index={index}/>;
                 })}
 
                 <NewUser />
